@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { sendMessage } from "../../../api/api";
 import { cn } from "../../../shared/lib/cn";
+import { surfaces, typography } from "../../../shared/lib/ui-classes";
 import { Button } from "../../../shared/ui/atoms/Button";
 
 type ContactFormState = {
@@ -14,6 +15,13 @@ const initialState: ContactFormState = {
   email: "",
   message: "",
 };
+
+const fieldClass = cn(
+  surfaces.card,
+  "w-full px-[var(--space-md)] py-[var(--space-sm)] text-[var(--color-text)]",
+  "transition-[border-color,box-shadow] duration-[var(--transition-fast)]",
+  "focus:border-[var(--color-primary-soft)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30",
+);
 
 export const ContactForm = () => {
   const [form, setForm] = useState<ContactFormState>(initialState);
@@ -34,17 +42,10 @@ export const ContactForm = () => {
     }
   };
 
-  const fieldClass =
-    "w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] px-[var(--space-md)] py-[var(--space-sm)] text-[var(--color-text)] transition-[border-color,box-shadow] duration-[var(--transition-fast)] focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30";
-
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="rounded-[var(--radius-xl)] bg-[var(--color-surface)] p-[var(--space-xl)] shadow-[var(--shadow-card)]"
-      noValidate
-    >
-      <label className="mb-[var(--space-md)] block">
-        <span className="mb-[var(--space-xs)] block text-sm font-medium text-[var(--color-text)]">
+    <form onSubmit={handleSubmit} className="space-y-[var(--space-md)]" noValidate>
+      <label className="block">
+        <span className={`${typography.cardBody} mb-[var(--space-xs)] block font-medium text-[var(--color-text)]`}>
           Имя
         </span>
         <input
@@ -57,8 +58,8 @@ export const ContactForm = () => {
         />
       </label>
 
-      <label className="mb-[var(--space-md)] block">
-        <span className="mb-[var(--space-xs)] block text-sm font-medium text-[var(--color-text)]">
+      <label className="block">
+        <span className={`${typography.cardBody} mb-[var(--space-xs)] block font-medium text-[var(--color-text)]`}>
           Email
         </span>
         <input
@@ -72,8 +73,8 @@ export const ContactForm = () => {
         />
       </label>
 
-      <label className="mb-[var(--space-lg)] block">
-        <span className="mb-[var(--space-xs)] block text-sm font-medium text-[var(--color-text)]">
+      <label className="block">
+        <span className={`${typography.cardBody} mb-[var(--space-xs)] block font-medium text-[var(--color-text)]`}>
           Сообщение
         </span>
         <textarea
@@ -86,7 +87,7 @@ export const ContactForm = () => {
         />
       </label>
 
-      <Button type="submit" variant="secondary" disabled={isSubmitting}>
+      <Button type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Отправка…" : "Отправить"}
       </Button>
     </form>

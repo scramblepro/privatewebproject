@@ -1,89 +1,56 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getProjects } from "../../../../api/api";
-import type { Project } from "../../../../entities/project/model/types";
+import type { Project } from "../../../../entities/project";
 import { Button } from "../../atoms/Button";
-import { Container } from "../../atoms/Container";
-import { Section } from "../../atoms/Section";
-import { ProjectCard } from "../../molecules/ProjectCard";
-import { SectionHeading } from "../../molecules/SectionHeading";
-
-const HEADING_ID = "projects-heading";
-const PREVIEW_LIMIT = 4;
+import { Section } from "../../Section";
+import { layout } from "../../../lib/ui-classes";
+import { ProjectCaseCard } from "../../molecules/ProjectCaseCard";
 
 type ProjectsSectionProps = {
+  projects: Project[];
+  isLoading?: boolean;
   showViewAll?: boolean;
   limit?: number;
 };
 
 export const ProjectsSection = ({
+  projects,
+  isLoading = false,
   showViewAll = true,
-  limit = PREVIEW_LIMIT,
+  limit,
 }: ProjectsSectionProps) => {
   const navigate = useNavigate();
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    getProjects()
-      .then((data) => {
-        if (!cancelled) {
-          setProjects(data);
-        }
-      })
-      .catch(() => {
-        if (!cancelled) {
-          setProjects([]);
-        }
-      })
-      .finally(() => {
-        if (!cancelled) {
-          setIsLoading(false);
-        }
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const visible = projects.slice(0, limit);
+  const visible =
+    limit !== undefined ? projects.slice(0, limit) : projects;
 
   return (
-    <Section aria-labelledby={HEADING_ID}>
-      <Container>
-        <SectionHeading
-          id={HEADING_ID}
-          title="Проекты"
-          subtitle="Подборка реализованных решений"
-        />
+    <Section
+      id="projects"
+      title="Проекты"
+      subtitle="Case studies — от задачи до результата"
+    >
+      {isLoading ? (
+        <p className="text-[var(--color-text-muted)]">Загрузка проектов…</p>
+      ) : visible.length === 0 ? (
+        <p className="text-[var(--color-text-muted)]">
+          Проекты скоро появятся здесь.
+        </p>
+      ) : (
+        <ul className={layout.gridProjects}>
+          {visible.map((project) => (
+            <li key={project.id} className="min-w-0">
+              <ProjectCaseCard project={project} />
+            </li>
+          ))}
+        </ul>
+      )}
 
-        {isLoading ? (
-          <p className="text-[var(--color-text-muted)]">Загрузка проектов…</p>
-        ) : visible.length === 0 ? (
-          <p className="text-[var(--color-text-muted)]">
-            Проекты скоро появятся здесь.
-          </p>
-        ) : (
-          <ul className="grid grid-cols-1 gap-[var(--space-lg)] md:grid-cols-2 xl:grid-cols-2">
-            {visible.map((project) => (
-              <li key={project.id} className="min-w-0">
-                <ProjectCard project={project} />
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {showViewAll ? (
-          <div className="mt-[var(--space-xl)]">
-            <Button variant="outline" onClick={() => navigate("/projects")}>
-              Все проекты
-            </Button>
-          </div>
-        ) : null}
-      </Container>
+      {showViewAll ? (
+        <div className="mt-[var(--space-2xl)]">
+          <Button variant="secondary" onClick={() => navigate("/projects")}>
+            Все проекты
+          </Button>
+        </div>
+      ) : null}
     </Section>
   );
 };

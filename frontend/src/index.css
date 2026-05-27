@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import "./shared/styles/tokens.css";
 
 @tailwind base;
@@ -17,6 +18,9 @@
 
   body {
     margin: 0;
+    font-family: var(--font-display);
+    background-color: var(--color-bg);
+    color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

@@ -1,11 +1,15 @@
-import { HeroSection } from "../shared/ui/organisms/HeroSection";
-import { ProjectsSection } from "../shared/ui/organisms/ProjectsSection";
-import { SkillsSectionWidget } from "../widgets/skills-section";
+import { CtaSectionWidget } from "../widgets/cta-section";
+import { HeroSectionWidget } from "../widgets/hero-section";
+import { ProjectsSectionWidget } from "../widgets/projects-section";
+import { ServicesSectionWidget } from "../widgets/services-section";
+import { TechnologiesSectionWidget } from "../widgets/technologies-section";
 
 export const Home = () => (
   <>
-    <HeroSection />
-    <SkillsSectionWidget />
-    <ProjectsSection />
+    <HeroSectionWidget />
+    <ServicesSectionWidget />
+    <TechnologiesSectionWidget />
+    <ProjectsSectionWidget />
+    <CtaSectionWidget />
   </>
 );

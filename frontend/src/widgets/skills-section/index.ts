@@ -1,1 +1,0 @@
-export { SkillsSectionWidget } from "./SkillsSectionWidget";

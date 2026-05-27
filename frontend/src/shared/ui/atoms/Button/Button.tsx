@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, forwardRef } from "react";
 import { cn } from "../../../lib/cn";
 
-export type ButtonVariant = "primary" | "secondary" | "outline";
+export type ButtonVariant = "primary" | "secondary" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -11,17 +11,17 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary-hover)] active:bg-[var(--color-primary-active)]",
+    "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-[0_0_24px_var(--color-glow-primary)] hover:bg-[var(--color-primary-hover)] active:bg-[var(--color-primary-active)]",
   secondary:
-    "bg-[var(--color-accent)] text-white hover:brightness-110 active:brightness-95",
-  outline:
-    "border-2 border-[var(--color-primary)] text-[var(--color-primary)] bg-transparent hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)] active:bg-[var(--color-primary-active)]",
+    "border border-[var(--color-border-strong)] bg-[var(--color-surface-elevated)] text-[var(--color-text)] hover:border-[var(--color-primary-soft)] hover:bg-[var(--color-surface)]",
+  ghost:
+    "bg-transparent text-[var(--color-text-muted)] hover:bg-[var(--color-surface-elevated)] hover:text-[var(--color-text)]",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "px-[var(--space-md)] py-[var(--space-sm)] text-sm",
-  md: "px-[var(--space-lg)] py-[var(--space-sm)] text-base",
-  lg: "px-[var(--space-xl)] py-[var(--space-md)] text-lg",
+  sm: "h-9 px-[var(--space-md)] text-sm",
+  md: "h-11 px-[var(--space-lg)] text-sm sm:text-base",
+  lg: "h-12 px-[var(--space-xl)] text-base sm:h-14 sm:px-10 sm:text-lg",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -42,8 +42,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       type={type}
       disabled={disabled}
       className={cn(
-        "inline-flex items-center justify-center rounded-[var(--radius-lg)] font-semibold",
-        "transition-[background-color,transform,box-shadow] duration-[var(--transition-base)]",
+        "inline-flex items-center justify-center gap-2 rounded-[var(--radius-lg)] font-semibold",
+        "transition-[background-color,transform,box-shadow,color,border-color] duration-[var(--transition-base)]",
         "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]",
         "disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none",
         "motion-reduce:transition-none",
