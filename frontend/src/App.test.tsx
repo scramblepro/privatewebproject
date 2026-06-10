@@ -8,5 +8,5 @@ test("renders studio brand", () => {
       <App />
     </BrowserRouter>,
   );
-  expect(screen.getAllByText(/Совдэп Studio/i).length).toBeGreaterThan(0);
+  expect(screen.getAllByText(/BrainStorm project/i).length).toBeGreaterThan(0);
 });

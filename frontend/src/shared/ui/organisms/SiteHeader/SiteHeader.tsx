@@ -14,7 +14,6 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
 
 const NAV_ITEMS = [
   { to: "/", label: "Главная", end: true },
-  { to: "/projects", label: "Проекты", end: false },
   { to: "/contact", label: "Контакты", end: false },
 ] as const;
 

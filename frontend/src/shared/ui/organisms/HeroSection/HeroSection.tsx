@@ -80,13 +80,6 @@ export const HeroSection = ({ config }: HeroSectionProps) => {
             <Button size="lg" onClick={() => navigate("/contact")}>
               Связаться
             </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              onClick={() => navigate("/projects")}
-            >
-              Посмотреть проекты
-            </Button>
           </motion.div>
         </motion.div>
       </Container>
