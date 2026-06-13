@@ -1,0 +1,12 @@
+.git
+.github
+**/.env
+**/.env.*
+!**/.env.example
+**/node_modules
+**/build
+**/*.log
+**/.cursor
+**/.cursorignore
+README.md
+frontend/README.md

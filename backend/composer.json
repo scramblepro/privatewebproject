@@ -1,7 +1,14 @@
 {
     "name": "user/backend",
+    "description": "Portfolio API (plain PHP + PDO)",
+    "type": "project",
     "require": {
-        "slim/slim": "4.*",
-        "slim/psr7": "*"
+        "php": "^8.2",
+        "ext-pdo": "*",
+        "ext-pdo_pgsql": "*"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
     }
 }

@@ -1,0 +1,9 @@
+node_modules
+vendor
+.git
+*.log
+test-db.php
+package.json
+package-lock.json
+Dockerfile
+.dockerignore
