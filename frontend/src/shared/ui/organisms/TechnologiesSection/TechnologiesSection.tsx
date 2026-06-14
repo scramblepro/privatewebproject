@@ -16,7 +16,7 @@ export const TechnologiesSection = ({
     subtitle="Стек, на котором строятся надёжные продукты"
     className="bg-[var(--color-bg-elevated)]"
   >
-    <ul className={layout.gridTech} role="list">
+    <ul className={layout.gridTech}>
       {technologies.map((technology) => (
         <TechPill key={technology.id} technology={technology} />
       ))}
