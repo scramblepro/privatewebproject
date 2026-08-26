@@ -1,4 +1,4 @@
-export type SiteLinkKey = "telegram" | "email" | "phone";
+export type SiteLinkKey = "telegram" | "email";
 
 export type SiteLink = {
   key: SiteLinkKey;
@@ -8,7 +8,7 @@ export type SiteLink = {
 };
 
 const contactEmail =
-  process.env.REACT_APP_CONTACT_EMAIL ?? "hello@studio.dev";
+  process.env.REACT_APP_CONTACT_EMAIL ?? "zaderjkizpnet@gmail.com";
 
 export const SITE_CONFIG = {
   brand: "BrainStorm project",
@@ -17,9 +17,9 @@ export const SITE_CONFIG = {
   stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind", "Docker"],
   links: {
     telegram:
-      process.env.REACT_APP_TELEGRAM_URL ?? "https://t.me",
+      process.env.REACT_APP_TELEGRAM_URL ?? "https://t.me/weird_siberian",
     email: `mailto:${contactEmail}`,
-    phone: `tel:+79111163142`,
+    /*phone: `tel:+79111163142`,*/
   } satisfies Record<SiteLinkKey, string>,
 } as const;
 
@@ -35,10 +35,10 @@ export const SITE_FOOTER_LINKS: SiteLink[] = [
     label: "Email",
     href: SITE_CONFIG.links.email,
   },
-  {
+  /*{
     key: "phone",
     label: "+7 911 116-31-42",
     href: SITE_CONFIG.links.phone,
     external: true,
-  },
+  },*/
 ];

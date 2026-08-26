@@ -5,7 +5,7 @@ export const SERVICES_CONFIG: Service[] = [
     id: "frontend",
     title: "Frontend Development",
     description:
-      "SPA и корпоративные интерфейсы на React и TypeScript с продуманной архитектурой.",
+      "SPA и корпоративные интерфейсы на React, Next.js и TypeScript с продуманной архитектурой.",
     icon: "frontend",
     sortOrder: 1,
   },
@@ -13,15 +13,15 @@ export const SERVICES_CONFIG: Service[] = [
     id: "backend",
     title: "Backend API",
     description:
-      "REST API, интеграции, авторизация и бизнес-логика на Node.js.",
+      "REST API, GraphQL, интеграции, авторизация и бизнес-логика на Node.js, PHP и Laravel.",
     icon: "backend",
     sortOrder: 2,
   },
   {
     id: "uiux",
-    title: "UI/UX",
+    title: "UI/UX & Design Systems",
     description:
-      "Дизайн-системы, прототипы и визуальная иерархия для конверсии.",
+      "Дизайн-системы, прототипы в Figma, визуальная иерархия и интерактивные анимации для конверсии.",
     icon: "uiux",
     sortOrder: 3,
   },
@@ -29,15 +29,15 @@ export const SERVICES_CONFIG: Service[] = [
     id: "crm",
     title: "CRM Systems",
     description:
-      "Кастомные CRM, дашборды и автоматизация внутренних процессов.",
+      "Кастомные CRM, дашборды с аналитикой и автоматизация внутренних процессов.",
     icon: "crm",
     sortOrder: 4,
   },
   {
     id: "automation",
-    title: "Automation",
+    title: "Automation & DevOps",
     description:
-      "Скрипты, webhooks и пайплайны для снижения ручной работы.",
+      "CI/CD пайплайны, Docker, Kubernetes, скрипты и webhooks для снижения ручной работы.",
     icon: "automation",
     sortOrder: 5,
   },
@@ -45,8 +45,32 @@ export const SERVICES_CONFIG: Service[] = [
     id: "landing",
     title: "Landing Pages",
     description:
-      "Продающие лендинги с premium UI, анимациями и высокой скоростью.",
+      "Продающие лендинги с premium UI, анимациями, высокой скоростью и SEO-оптимизацией.",
     icon: "landing",
     sortOrder: 6,
+  },
+  {
+    id: "ai",
+    title: "Внедрение ИИ в бизнес",
+    description:
+      "Интеграция ИИ-решений: анализ данных, автоматизация рутины и языковые модели в Ваших процессах.",
+    icon: "ai",
+    sortOrder: 7,
+  },
+  {
+    id: "chat",
+    title: "Онлайн-чат и AI-помощник",
+    description:
+      "Создание онлайн-чатов и настройка интеллектуальных помощников для поддержки клиентов 24/7.",
+    icon: "chat",
+    sortOrder: 8,
+  },
+  {
+    id: "audit",
+    title: "Аудит и сопровождение IT",
+    description:
+      "Аудит Вашей IT-инфраструктуры, оптимизация производительности и техническое сопровождение систем.",
+    icon: "audit",
+    sortOrder: 9,
   },
 ];

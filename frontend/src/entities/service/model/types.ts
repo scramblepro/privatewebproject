@@ -4,7 +4,10 @@ export type ServiceIconId =
   | "uiux"
   | "crm"
   | "automation"
-  | "landing";
+  | "landing"
+  | "ai"
+  | "chat"
+  | "audit";
 
 export type Service = {
   id: string;

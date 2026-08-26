@@ -5,13 +5,13 @@ import { ButtonLink } from "../shared/ui/atoms/Button";
 export const ContactPage = () => (
   <Section
     title="Связаться с нами"
-    subtitle="Оставьте сообщение — ответим в ближайшее время"
+    subtitle="Оставьте сообщение - ответим в ближайшее время"
     spacing="compact"
     containerClassName="max-w-xl"
   >
     <div className="mb-[var(--space-lg)]">
       <ButtonLink
-        href="https://t.me/sta_bil_nost"
+        href="https://t.me/weird_siberian"
         variant="primary"
         size="lg"
         target="_blank"

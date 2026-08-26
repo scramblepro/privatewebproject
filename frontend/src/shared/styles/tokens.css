@@ -1,22 +1,32 @@
 :root {
-  --color-bg: #06080f;
-  --color-bg-elevated: #0c1019;
-  --color-surface: #111827;
-  --color-surface-elevated: #1a2332;
+  --color-bg: #05070d;
+  --color-bg-elevated: #0a0e18;
+  --color-surface: #0f1524;
+  --color-surface-elevated: #182136;
   --color-text: #f8fafc;
   --color-text-muted: #94a3b8;
-  --color-primary: #3b82f6;
-  --color-primary-soft: #60a5fa;
-  --color-primary-hover: #2563eb;
-  --color-primary-active: #1d4ed8;
+  --color-primary: #6366f1;
+  --color-primary-soft: #818cf8;
+  --color-primary-hover: #4f46e5;
+  --color-primary-active: #4338ca;
   --color-primary-foreground: #ffffff;
   --color-accent: #22d3ee;
   --color-accent-muted: #0891b2;
-  --color-border: rgb(148 163 184 / 0.15);
-  --color-border-strong: rgb(148 163 184 / 0.28);
-  --color-header: #06080f;
-  --color-glow-primary: rgb(59 130 246 / 0.35);
-  --color-glow-accent: rgb(34 211 238 / 0.25);
+  --color-accent-soft: #67e8f9;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-border: rgb(148 163 184 / 0.14);
+  --color-border-strong: rgb(148 163 184 / 0.3);
+  --color-header: #05070d;
+  --color-glow-primary: rgb(99 102 241 / 0.4);
+  --color-glow-accent: rgb(34 211 238 / 0.3);
+  --color-glow-success: rgb(52 211 153 / 0.25);
+
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  --gradient-accent: linear-gradient(135deg, #22d3ee 0%, #6366f1 50%, #8b5cf6 100%);
+  --gradient-text: linear-gradient(135deg, #818cf8 0%, #22d3ee 50%, #a78bfa 100%);
+  --gradient-surface: linear-gradient(145deg, rgb(99 102 241 / 0.08) 0%, rgb(34 211 238 / 0.05) 50%, transparent 100%);
 
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -32,6 +42,7 @@
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
   --radius-full: 9999px;
 
   --container-max: 80rem;
@@ -44,21 +55,67 @@
   --leading-normal: 1.6;
   --leading-relaxed: 1.75;
 
-  --text-hero: clamp(2.25rem, 5vw, 4.5rem);
+  --text-hero: clamp(2.5rem, 5.5vw, 5rem);
   --text-section: clamp(1.75rem, 3vw, 2.5rem);
   --text-body: clamp(1rem, 1.5vw, 1.125rem);
 
-  --shadow-card: 0 0 0 1px var(--color-border), 0 8px 32px rgb(0 0 0 / 0.35);
-  --shadow-card-hover: 0 0 0 1px var(--color-border-strong), 0 16px 48px rgb(0 0 0 / 0.45);
+  --shadow-card: 0 0 0 1px var(--color-border), 0 8px 32px rgb(0 0 0 / 0.4);
+  --shadow-card-hover: 0 0 0 1px var(--color-border-strong), 0 16px 48px rgb(0 0 0 / 0.5), 0 0 40px var(--color-glow-primary);
   --shadow-glow: 0 0 80px var(--color-glow-primary);
+  --shadow-glow-accent: 0 0 60px var(--color-glow-accent);
+  --shadow-glow-strong: 0 0 100px var(--color-glow-primary), 0 0 40px var(--color-glow-accent);
 
   --transition-fast: 150ms ease;
   --transition-base: 220ms ease;
+  --transition-slow: 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-gradient: gradient-shift 8s ease infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-bounce-soft: bounce-soft 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-12px) translateX(4px); }
+  50% { transform: translateY(-6px) translateX(-4px); }
+  75% { transform: translateY(-14px) translateX(2px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
     --transition-fast: 0ms;
     --transition-base: 0ms;
+    --transition-slow: 0ms;
+    --animate-float: none;
+    --animate-float-slow: none;
+    --animate-pulse-glow: none;
+    --animate-spin-slow: none;
+    --animate-gradient: none;
+    --animate-shimmer: none;
+    --animate-bounce-soft: none;
   }
 }

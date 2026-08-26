@@ -11,7 +11,7 @@ export const ServicesSection = ({ services }: ServicesSectionProps) => (
   <Section
     id="services"
     title="Услуги"
-    subtitle="Полный цикл разработки — от интерфейса до инфраструктуры"
+    subtitle="Полный цикл разработки - от интерфейса до инфраструктуры"
   >
     <ul className={layout.gridServices}>
       {services.map((service) => (

@@ -21,13 +21,15 @@ export const TechPill = ({ technology }: TechPillProps) => {
       whileHover={
         motionSafe.prefersReducedMotion
           ? undefined
-          : { scale: 1.03 }
+          : { scale: 1.06, y: -3 }
       }
+      whileTap={motionSafe.prefersReducedMotion ? undefined : { scale: 0.97 }}
     >
       <Badge
         className={cn(
           "px-[var(--space-lg)] py-[var(--space-sm)] text-sm sm:text-base",
-          "hover:border-[var(--color-primary-soft)] hover:text-[var(--color-primary-soft)]",
+          "transition-all duration-[var(--transition-base)]",
+          "hover:border-[var(--color-primary-soft)] hover:bg-[var(--color-primary)]/10 hover:text-[var(--color-primary-soft)] hover:shadow-[var(--shadow-glow-accent)]",
         )}
       >
         {technology.name}
